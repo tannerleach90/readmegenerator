@@ -1,8 +1,10 @@
-function generateMarkdown(data) {
+function generateMarkdown(repoName) {
   return `
-# ${data.title}
+# ${repoName}
 
 `;
 }
 
 module.exports = generateMarkdown;
+
+//writefile fn and pass thru title
