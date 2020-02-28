@@ -8,7 +8,22 @@ const questions = [{
 },{
     message: "What repo do you want to make a ReadMe for?",
     name: "repoName"
-}
+},{
+
+    message: "Give a short description of your project",
+    name: "projectDescription"
+},{
+    message: "If desired, write a Table of Contents",
+    name: "tableofContents"
+},{
+
+    message: "Installation Instructions",
+    name: "installInst"
+},{
+
+    message: "What is the usage of this program?",
+    name: "projUsage"
+},
 
 ];
 
@@ -23,8 +38,11 @@ function init() {
         .prompt(
          questions
         )
-        .then(function({username, repoName, }){
-            writeToFile("README.md", generateMarkdown(repoName))
+        .then(function(response){
+            api.getUser(response.username).then(function(githubData){
+                console.log(githubData)
+            })
+            writeToFile("README.md", generateMarkdown(response))
             // api.getUser(username).then(function(res){
                 
             // })
